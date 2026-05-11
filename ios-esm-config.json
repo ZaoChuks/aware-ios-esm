@@ -1,0 +1,58 @@
+{
+  "schedules": [
+    {
+      "schedule_id": "morning_mood_check",
+      "schedule_title": "Morning Mood Check",
+      "schedule_description": "Daily morning mood and activity questionnaire",
+      "schedule_start": "09:00",
+      "schedule_end": "09:30",
+      "schedule_interval": 86400,
+      "schedule_randomize": false,
+      "esms": [
+        {
+          "esm_type": 6,
+          "esm_title": "Mood Check",
+          "esm_instructions": "How would you rate your mood right now?",
+          "esm_submit": "Submit",
+          "esm_expiration_threshold": 900,
+          "esm_trigger": "morning_mood",
+          "esm_scale_min": 1,
+          "esm_scale_max": 5,
+          "esm_scale_start": 3,
+          "esm_scale_min_label": "Very low",
+          "esm_scale_max_label": "Very good"
+        },
+        {
+          "esm_type": 2,
+          "esm_title": "Current Activity",
+          "esm_instructions": "What are you doing right now?",
+          "esm_submit": "Submit",
+          "esm_expiration_threshold": 900,
+          "esm_trigger": "morning_activity",
+          "esm_radios": [
+            "Resting",
+            "Walking",
+            "Working",
+            "Eating",
+            "Socializing",
+            "Other"
+          ]
+        },
+        {
+          "esm_type": 2,
+          "esm_title": "Memory Difficulty",
+          "esm_instructions": "Have you experienced memory difficulty in the past hour?",
+          "esm_submit": "Submit",
+          "esm_expiration_threshold": 900,
+          "esm_trigger": "memory_check",
+          "esm_radios": [
+            "No",
+            "Mild",
+            "Moderate",
+            "Severe"
+          ]
+        }
+      ]
+    }
+  ]
+}
