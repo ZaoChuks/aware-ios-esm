@@ -1,28 +1,80 @@
 [
   {
-    "schedule_id": "condition_check_v1",
-    "hours": [-1],
-    "start_date": "05-11-2026",
+    "schedule_id": "mci_morning_check_v1",
+    "hours": [9],
+    "start_date": "05-19-2026",
     "end_date": "12-31-2026",
-    "expiration": 30,
+    "expiration": 60,
     "randomize": 0,
-    "notification_title": "AWARE Check-in",
-    "notification_body": "Please answer a short research questionnaire.",
+    "notification_title": "Morning Cognitive Check",
+    "notification_body": "Please complete a short memory and mood check.",
     "esms": [
       {
         "esm": {
           "esm_type": 4,
           "esm_title": "Mood Check",
           "esm_instructions": "How would you rate your mood right now?",
-          "esm_likert_max": 5,
           "esm_likert_max_label": "Very good",
           "esm_likert_min_label": "Very low",
+          "esm_likert_max": 5,
           "esm_likert_step": 1,
           "esm_submit": "Next",
-          "esm_expiration_threshold": 30,
-          "esm_trigger": "mood_check"
+          "esm_expiration_threshold": 60,
+          "esm_trigger": "morning_mood_check"
         }
       },
+      {
+        "esm": {
+          "esm_type": 4,
+          "esm_title": "Fatigue Check",
+          "esm_instructions": "How tired do you feel right now?",
+          "esm_likert_max_label": "Very tired",
+          "esm_likert_min_label": "Not tired",
+          "esm_likert_max": 5,
+          "esm_likert_step": 1,
+          "esm_submit": "Next",
+          "esm_expiration_threshold": 60,
+          "esm_trigger": "morning_fatigue_check"
+        }
+      },
+      {
+        "esm": {
+          "esm_type": 2,
+          "esm_title": "Memory Difficulty",
+          "esm_instructions": "Since waking up today, have you noticed any memory difficulty?",
+          "esm_radios": [
+            "No difficulty",
+            "Mild difficulty",
+            "Moderate difficulty",
+            "Severe difficulty"
+          ],
+          "esm_submit": "Next",
+          "esm_expiration_threshold": 60,
+          "esm_trigger": "morning_memory_difficulty"
+        }
+      },
+      {
+        "esm": {
+          "esm_type": 1,
+          "esm_title": "Animal Naming Task",
+          "esm_instructions": "For 60 seconds, type as many animals as you can remember. Separate each answer with a comma. Example: dog, cat, horse.",
+          "esm_submit": "Submit",
+          "esm_expiration_threshold": 120,
+          "esm_trigger": "morning_animal_fluency"
+        }
+      }
+    ]
+  },
+  {
+    "schedule_id": "mci_afternoon_check_v1",
+    "hours": [14],
+    "start_date": "05-19-2026",
+    "end_date": "12-31-2026",
+    "expiration": 60,
+    "randomize": 0,
+    "notification_title": "Afternoon Cognitive Check",
+    "notification_body": "Please complete a short activity and attention check.",
+    "esms": [
       {
         "esm": {
           "esm_type": 2,
@@ -31,30 +83,121 @@
           "esm_radios": [
             "Resting",
             "Walking",
-            "Working",
             "Eating",
+            "Working or studying",
             "Socializing",
+            "Watching TV or listening to media",
             "Other"
           ],
           "esm_submit": "Next",
-          "esm_expiration_threshold": 30,
-          "esm_trigger": "current_activity"
+          "esm_expiration_threshold": 60,
+          "esm_trigger": "afternoon_current_activity"
+        }
+      },
+      {
+        "esm": {
+          "esm_type": 4,
+          "esm_title": "Attention Check",
+          "esm_instructions": "How focused do you feel right now?",
+          "esm_likert_max_label": "Very focused",
+          "esm_likert_min_label": "Not focused",
+          "esm_likert_max": 5,
+          "esm_likert_step": 1,
+          "esm_submit": "Next",
+          "esm_expiration_threshold": 60,
+          "esm_trigger": "afternoon_attention_check"
+        }
+      },
+      {
+        "esm": {
+          "esm_type": 1,
+          "esm_title": "Fruit Naming Task",
+          "esm_instructions": "For 60 seconds, type as many fruits as you can remember. Separate each answer with a comma.",
+          "esm_submit": "Next",
+          "esm_expiration_threshold": 120,
+          "esm_trigger": "afternoon_fruit_fluency"
+        }
+      },
+      {
+        "esm": {
+          "esm_type": 4,
+          "esm_title": "Task Difficulty",
+          "esm_instructions": "How difficult was the naming task?",
+          "esm_likert_max_label": "Very difficult",
+          "esm_likert_min_label": "Very easy",
+          "esm_likert_max": 5,
+          "esm_likert_step": 1,
+          "esm_submit": "Submit",
+          "esm_expiration_threshold": 60,
+          "esm_trigger": "afternoon_task_difficulty"
+        }
+      }
+    ]
+  },
+  {
+    "schedule_id": "mci_evening_check_v1",
+    "hours": [19],
+    "start_date": "05-19-2026",
+    "end_date": "12-31-2026",
+    "expiration": 60,
+    "randomize": 0,
+    "notification_title": "Evening Memory Check",
+    "notification_body": "Please complete a short end-of-day memory check.",
+    "esms": [
+      {
+        "esm": {
+          "esm_type": 2,
+          "esm_title": "Daily Memory Change",
+          "esm_instructions": "Compared with your usual day, how was your memory today?",
+          "esm_radios": [
+            "Better than usual",
+            "About the same",
+            "Slightly worse",
+            "Much worse"
+          ],
+          "esm_submit": "Next",
+          "esm_expiration_threshold": 60,
+          "esm_trigger": "evening_daily_memory_change"
         }
       },
       {
         "esm": {
           "esm_type": 2,
-          "esm_title": "Memory Difficulty",
-          "esm_instructions": "Have you experienced memory difficulty in the past hour?",
+          "esm_title": "Lost Item or Missed Task",
+          "esm_instructions": "Today, did you forget an appointment, misplace something important, or miss a planned task?",
           "esm_radios": [
             "No",
-            "Mild",
-            "Moderate",
-            "Severe"
+            "Yes, once",
+            "Yes, more than once",
+            "Not sure"
           ],
+          "esm_submit": "Next",
+          "esm_expiration_threshold": 60,
+          "esm_trigger": "evening_missed_task"
+        }
+      },
+      {
+        "esm": {
+          "esm_type": 4,
+          "esm_title": "Stress Check",
+          "esm_instructions": "How stressed did you feel today?",
+          "esm_likert_max_label": "Very stressed",
+          "esm_likert_min_label": "Not stressed",
+          "esm_likert_max": 5,
+          "esm_likert_step": 1,
+          "esm_submit": "Next",
+          "esm_expiration_threshold": 60,
+          "esm_trigger": "evening_stress_check"
+        }
+      },
+      {
+        "esm": {
+          "esm_type": 1,
+          "esm_title": "Flower Naming Task",
+          "esm_instructions": "For 60 seconds, type as many flowers as you can remember. Separate each answer with a comma.",
           "esm_submit": "Submit",
-          "esm_expiration_threshold": 30,
-          "esm_trigger": "memory_difficulty"
+          "esm_expiration_threshold": 120,
+          "esm_trigger": "evening_flower_fluency"
         }
       }
     ]
