@@ -1,14 +1,28 @@
 [
   {
-    "schedule_id": "mci_morning_check_v1",
+    "schedule_id": "mci_morning_check_v2",
     "hours": [-1],
-    "start_date": "05-19-2026",
+    "start_date": "06-12-2026",
     "end_date": "12-31-2026",
     "expiration": 60,
     "randomize": 0,
-    "notification_title": "Morning Cognitive Check",
-    "notification_body": "Please complete a short memory and mood check.",
+    "notification_title": "Morning Check",
+    "notification_body": "Good morning! Please complete a short 2-minute check.",
     "esms": [
+      {
+        "esm": {
+          "esm_type": 4,
+          "esm_title": "Sleep Quality",
+          "esm_instructions": "How well did you sleep last night?",
+          "esm_likert_max_label": "Very well",
+          "esm_likert_min_label": "Very poorly",
+          "esm_likert_max": 5,
+          "esm_likert_step": 1,
+          "esm_submit": "Next",
+          "esm_expiration_threshold": 60,
+          "esm_trigger": "morning_sleep_quality"
+        }
+      },
       {
         "esm": {
           "esm_type": 4,
@@ -25,32 +39,31 @@
       },
       {
         "esm": {
-          "esm_type": 4,
-          "esm_title": "Fatigue Check",
-          "esm_instructions": "How tired do you feel right now?",
-          "esm_likert_max_label": "Very tired",
-          "esm_likert_min_label": "Not tired",
-          "esm_likert_max": 5,
-          "esm_likert_step": 1,
+          "esm_type": 2,
+          "esm_title": "Day Orientation",
+          "esm_instructions": "Without checking a calendar or your phone screen: what day of the week is it today?",
+          "esm_radios": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
           "esm_submit": "Next",
           "esm_expiration_threshold": 60,
-          "esm_trigger": "morning_fatigue_check"
+          "esm_trigger": "morning_orientation_day"
         }
       },
       {
         "esm": {
-          "esm_type": 2,
-          "esm_title": "Memory Difficulty",
-          "esm_instructions": "Since waking up today, have you noticed any memory difficulty?",
-          "esm_radios": [
-            "No difficulty",
-            "Mild difficulty",
-            "Moderate difficulty",
-            "Severe difficulty"
-          ],
+          "esm_type": 1,
+          "esm_title": "Three Words to Remember",
+          "esm_instructions": "Memory task: please remember these three words until this evening's check — TABLE, PENNY, ORANGE. Type the three words once now to confirm you read them.",
           "esm_submit": "Next",
-          "esm_expiration_threshold": 60,
-          "esm_trigger": "morning_memory_difficulty"
+          "esm_expiration_threshold": 90,
+          "esm_trigger": "morning_word_encode"
         }
       },
       {
@@ -66,14 +79,14 @@
     ]
   },
   {
-    "schedule_id": "mci_afternoon_check_v1",
+    "schedule_id": "mci_afternoon_check_v2",
     "hours": [14],
-    "start_date": "05-19-2026",
+    "start_date": "06-12-2026",
     "end_date": "12-31-2026",
     "expiration": 60,
     "randomize": 0,
-    "notification_title": "Afternoon Cognitive Check",
-    "notification_body": "Please complete a short activity and attention check.",
+    "notification_title": "Afternoon Check",
+    "notification_body": "Please complete a short attention and typing check.",
     "esms": [
       {
         "esm": {
@@ -82,11 +95,11 @@
           "esm_instructions": "What are you doing right now?",
           "esm_radios": [
             "Resting",
-            "Walking",
+            "Walking or exercising",
             "Eating",
             "Working or studying",
             "Socializing",
-            "Watching TV or listening to media",
+            "Watching TV or using media",
             "Other"
           ],
           "esm_submit": "Next",
@@ -111,8 +124,18 @@
       {
         "esm": {
           "esm_type": 1,
+          "esm_title": "Typing Task",
+          "esm_instructions": "Please type this sentence exactly as shown, at your normal typing speed: The quick brown fox jumps over the lazy dog.",
+          "esm_submit": "Next",
+          "esm_expiration_threshold": 90,
+          "esm_trigger": "afternoon_typing_copy"
+        }
+      },
+      {
+        "esm": {
+          "esm_type": 1,
           "esm_title": "Fruit Naming Task",
-          "esm_instructions": "For 60 seconds, type as many fruits as you can remember. Separate each answer with a comma.",
+          "esm_instructions": "For 60 seconds, type as many fruits as you can remember. Separate each answer with a comma. Example: apple, banana, mango.",
           "esm_submit": "Next",
           "esm_expiration_threshold": 120,
           "esm_trigger": "afternoon_fruit_fluency"
@@ -122,7 +145,7 @@
         "esm": {
           "esm_type": 4,
           "esm_title": "Task Difficulty",
-          "esm_instructions": "How difficult was the naming task?",
+          "esm_instructions": "How difficult was the naming task for you?",
           "esm_likert_max_label": "Very difficult",
           "esm_likert_min_label": "Very easy",
           "esm_likert_max": 5,
@@ -135,29 +158,39 @@
     ]
   },
   {
-    "schedule_id": "mci_evening_check_v1",
+    "schedule_id": "mci_evening_check_v2",
     "hours": [19],
-    "start_date": "05-19-2026",
+    "start_date": "06-12-2026",
     "end_date": "12-31-2026",
     "expiration": 60,
     "randomize": 0,
-    "notification_title": "Evening Memory Check",
-    "notification_body": "Please complete a short end-of-day memory check.",
+    "notification_title": "Evening Check",
+    "notification_body": "Please complete the evening memory check.",
     "esms": [
       {
         "esm": {
+          "esm_type": 1,
+          "esm_title": "Word Recall",
+          "esm_instructions": "Memory task: this morning you were asked to remember three words. Type them now, separated by commas. If you cannot remember all of them, type the ones you do remember.",
+          "esm_submit": "Next",
+          "esm_expiration_threshold": 90,
+          "esm_trigger": "evening_word_recall"
+        }
+      },
+      {
+        "esm": {
           "esm_type": 2,
-          "esm_title": "Daily Memory Change",
+          "esm_title": "Memory Today",
           "esm_instructions": "Compared with your usual day, how was your memory today?",
           "esm_radios": [
             "Better than usual",
             "About the same",
-            "Slightly worse",
+            "Somewhat worse",
             "Much worse"
           ],
           "esm_submit": "Next",
           "esm_expiration_threshold": 60,
-          "esm_trigger": "evening_daily_memory_change"
+          "esm_trigger": "evening_memory_today"
         }
       },
       {
@@ -173,7 +206,7 @@
           ],
           "esm_submit": "Next",
           "esm_expiration_threshold": 60,
-          "esm_trigger": "evening_missed_task"
+          "esm_trigger": "evening_lost_or_missed"
         }
       },
       {
@@ -194,7 +227,7 @@
         "esm": {
           "esm_type": 1,
           "esm_title": "Flower Naming Task",
-          "esm_instructions": "For 60 seconds, type as many flowers as you can remember. Separate each answer with a comma.",
+          "esm_instructions": "For 60 seconds, type as many flowers as you can remember. Separate each answer with a comma. Example: rose, tulip, lily.",
           "esm_submit": "Submit",
           "esm_expiration_threshold": 120,
           "esm_trigger": "evening_flower_fluency"
