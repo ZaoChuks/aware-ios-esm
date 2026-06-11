@@ -2,7 +2,7 @@
   {
     "schedule_id": "mci_morning_check_v2",
     "hours": [-1],
-    "start_date": "06-11-2026",
+    "start_date": "06-10-2026",
     "end_date": "12-31-2026",
     "expiration": 60,
     "randomize": 0,
